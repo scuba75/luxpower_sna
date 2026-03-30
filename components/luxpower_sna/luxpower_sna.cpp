@@ -716,7 +716,7 @@ void LuxpowerSNAComponent::process_bank2_(const Bank2 &d) {
     uint8_t bs = (uint8_t)(d.bat_status_inv < 17 ? d.bat_status_inv : 16);
     std::string bs_code = std::to_string(bs);
     pub(lux_bat_status_text_, bs_code.c_str());
-    
+    ESP_LOGI(TAG, "current mode is", _r113.c_str());
     //if (BAT_STATUS_TEXTS[bs] && strlen(BAT_STATUS_TEXTS[bs]) > 0) {
     //    pub(lux_bat_status_text_, BAT_STATUS_TEXTS[bs]);
     //} else {
