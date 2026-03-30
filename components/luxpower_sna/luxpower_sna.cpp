@@ -655,11 +655,13 @@ void LuxpowerSNAComponent::process_bank0_(const Bank0 &d) {
     pub(grid_flow_,(d.p_to_user > 0)   ? -(float)d.p_to_user   : (float)d.p_to_grid);
     pub(home_live_, home_live);
     pub(home_day_,  home_day);
-    if (d.status < 193 && STATUS_TEXTS[d.status] && strlen(STATUS_TEXTS[d.status]) > 0) {
-        pub(lux_status_text_, STATUS_TEXTS[d.status]);
-    } else {
-        pub(lux_status_text_, "Unknown Status");
-    }
+    std::string status_code = std::to_string(d.status);
+    pub(lux_status_text_, status_code.c_str());
+    //if (d.status < 193 && STATUS_TEXTS[d.status] && strlen(STATUS_TEXTS[d.status]) > 0) {
+    //    pub(lux_status_text_, STATUS_TEXTS[d.status]);
+    //} else {
+    //    pub(lux_status_text_, "Unknown Status");
+    //}
 }
 
 // ---------------------------------------------------------------------------
