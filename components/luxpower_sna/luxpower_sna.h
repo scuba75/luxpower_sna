@@ -116,7 +116,8 @@ struct Bank2 {
     int16_t  min_cell_temp;
     uint16_t _r105;
     int16_t  bat_cycle_count;
-    uint8_t  _r107_113[14];
+    uint8_t  _r107_112[12];
+    uint16_t _r113;
     int16_t  p_load2;
     uint8_t  _r115_119[10];
 };  // 80 bytes
