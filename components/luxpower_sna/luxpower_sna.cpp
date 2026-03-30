@@ -714,11 +714,14 @@ void LuxpowerSNAComponent::process_bank2_(const Bank2 &d) {
     pub(bat_cycles_, (float)d.bat_cycle_count);
     pub(p_load2_,    (float)d.p_load2);
     uint8_t bs = (uint8_t)(d.bat_status_inv < 17 ? d.bat_status_inv : 16);
-    if (BAT_STATUS_TEXTS[bs] && strlen(BAT_STATUS_TEXTS[bs]) > 0) {
-        pub(lux_bat_status_text_, BAT_STATUS_TEXTS[bs]);
-    } else {
-        pub(lux_bat_status_text_, "Unknown Battery Status");
-    }
+    std::string bs_code = std::to_string(bs);
+    pub(lux_bat_status_text_, bs_code.c_str());
+    
+    //if (BAT_STATUS_TEXTS[bs] && strlen(BAT_STATUS_TEXTS[bs]) > 0) {
+    //    pub(lux_bat_status_text_, BAT_STATUS_TEXTS[bs]);
+    //} else {
+    //    pub(lux_bat_status_text_, "Unknown Battery Status");
+    //}
 }
 
 // ---------------------------------------------------------------------------
